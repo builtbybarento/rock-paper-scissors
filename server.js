@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const PORT = 8000
+const path = require('path');
 
 app.use(cors())
 
@@ -16,6 +17,9 @@ let rockpaperscissors = {
     'enemy-hand': flip()
 
 }
+
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
 
 
 app.get('/', (request, response) => {
