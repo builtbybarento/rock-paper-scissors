@@ -32,4 +32,4 @@ function winOrLose(playerHand, enemyHand){
   // Not tie or win, must be loss
   return "lose";
 
-}
+}//
