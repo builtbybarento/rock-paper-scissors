@@ -4,7 +4,9 @@ async function makeReq(){
   const playerHand = document.querySelector("#playerHand").value;
   const res = await fetch(`/api`)
   const data = await res.json() 
-  const enemyHand = data['enemy-hand'].hand;
+  let enemyHand = data['enemy-hand'];
+  console.log(data)
+  console.log(enemyHand)
 
   let result = winOrLose(playerHand, enemyHand);
 
