@@ -13,9 +13,8 @@ function flip(){
 }
 
 let rockpaperscissors = {
-    'enemy-hand': {
-        'hand': flip()
-    }
+    'enemy-hand': flip()
+
 }
 
 
@@ -24,7 +23,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/api', (request, response) => {
-    rockpaperscissors['enemy-hand'].hand = flip();  // Generate a new hand each time
+    rockpaperscissors['enemy-hand'] = flip();  // Generate a new hand each time
     response.json(rockpaperscissors)
 })
 
