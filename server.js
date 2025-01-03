@@ -19,6 +19,7 @@ let rockpaperscissors = {
 }
 
 app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
 
 
 app.get('/', (request, response) => {
