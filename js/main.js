@@ -1,24 +1,33 @@
 document.querySelector('#clickMe').addEventListener('click', makeReq)
 
 async function makeReq(){
+  const playerHand = document.querySelector("#playerHand").value;
+  const res = await fetch(`/api`)
+  const data = await res.json() 
+  const enemyHand = data['enemy-hand'].hand;
 
-  const userName = document.querySelector("#userName").value;
-  const res = await fetch(`/api?student=${userName}`)
-  const data = await res.json()
+  let result = winOrLose(playerHand, enemyHand);
 
-  console.log(data);
-  document.querySelector("#personName").textContent = data.name
-  document.querySelector("#personStatus").textContent = data.status
-  document.querySelector("#personOccupation").textContent = data.currentOccupation
+  // Print results
+  document.querySelector("#result").textContent = 
+    `You played ${playerHand}. I played ${enemyHand}. You ${result}.`
 
 
 }
 
-// function RPS(){
-// 	return Math.ceil(Math.random() * 3)
-// }
+function winOrLose(playerHand, enemyHand){
+  // Define relationships 
+  const chart = {
+    'rock' : 'scissors',
+    'scissors' : 'paper',
+    'paper' : 'rock'
+  }
 
-// let rps = Math.ceil(Math.random() * 3) === 1 ? "rock" ?
-//           Math.ceil(Math.random() * 3) === 2 ? "paper" : "scissors"; 
+  // Check Tie
+  if(playerHand === enemyHand) return "tie";
+  // Use dictionary to determine win
+  if(chart[playerHand] === enemyHand) return "win";
+  // Not tie or win, must be loss
+  return "lose";
 
-
+}
