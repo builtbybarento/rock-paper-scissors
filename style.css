@@ -1,0 +1,85 @@
+
+/* centered the elements , sizing , fonts , backgroung coloring , flexed into column  */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* added shadows, resized and repositioned  */
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+   /* added shadows, resized and repositioned  */
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+ 
+/* set the images inside the div container to be more centered */
+  #image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+/* added spacing between the images and resized the images , changed cursor to pointer when hover over  */
+  img {
+    width: 150px;
+    margin: 15px;
+    border: 2px solid white;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* image smooth scale when hovered over */
+  img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+  }
+  
+
+  /* when image is clicked on it reduces the scale of the image briefly for effect */
+  img:active {
+    transform: scale(0.95);
+  }
+  
+  /* styling for results  */
+  #result {
+    padding: 20px;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+
+  /* for resizing  */
+  @media (max-width: 768px) {
+    img {
+      width: 120px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
