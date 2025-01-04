@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const PORT = 8000
+const PORT = 3000
 const path = require('path');
 
 app.use(cors())
@@ -18,9 +18,7 @@ let rockpaperscissors = {
 
 }
 
-app.use('/js', express.static(path.join(__dirname, 'js')));
-app.use('/css', express.static(path.join(__dirname, 'css')));
-app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (request, response) => {
