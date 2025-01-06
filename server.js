@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-const PORT = 3000
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const PORT = 3000;
 const path = require('path');
 
 app.use(cors())
@@ -22,14 +22,14 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html')
+    response.sendFile(__dirname + '/index.html');
 })
 
 app.get('/api', (request, response) => {
     rockpaperscissors['enemy-hand'] = flip();  // Generate a new hand each time
-    response.json(rockpaperscissors)
+    response.json(rockpaperscissors);
 })
 
 app.listen(process.env.PORT || PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+    console.log(`Server running on port ${PORT}`);
 })
