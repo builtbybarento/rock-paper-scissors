@@ -3,6 +3,8 @@ const app = express()
 const cors = require('cors')
 const PORT = 3000
 const path = require('path');
+// mongodb
+const mongoose = require('mongoose')
 
 app.use(cors())
 
@@ -15,7 +17,6 @@ function flip() {
 
 let rockpaperscissors = {
     'enemy-hand': flip()
-
 }
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -30,6 +31,19 @@ app.get('/api', (request, response) => {
     response.json(rockpaperscissors)
 })
 
+app.post('/api/score', (request, response) => {
+    console.log(req.body)
+})
+
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
+
+// connect to mongodb
+mongoose.connect('mongodb+srv://admin:pass1234@backend-db.d8rmd.mongodb.net/Node-API?retryWrites=true&w=majority&appName=backend-db')
+    .then(() => {
+        console.log('Connected to mongodb!')
+    })
+    .catch((err) => {
+        console.log(`error: ${err}`)
+    })
