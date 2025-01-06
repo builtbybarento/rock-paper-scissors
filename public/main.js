@@ -1,5 +1,6 @@
 // document.querySelector('#clickMe').addEventListener('click', makeReq)
 let value
+
 function scissors() {
   value = 'scissors'
   makeReq()
@@ -31,7 +32,7 @@ async function makeReq() {
   document.querySelector("#result").textContent =
     `You played ${playerHand}. I played ${enemyHand}. You ${result}.`
 
-
+  // do a api post to send the result to the database
 }
 
 function winOrLose(playerHand, enemyHand) {
@@ -48,5 +49,4 @@ function winOrLose(playerHand, enemyHand) {
   if (chart[playerHand] === enemyHand) return "win";
   // Not tie or win, must be loss
   return "lose";
-
 }
