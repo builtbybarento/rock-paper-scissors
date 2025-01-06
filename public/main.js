@@ -31,6 +31,8 @@ async function makeReq() {
   // Print results
   document.querySelector("#result").textContent =
     `You played ${playerHand}. I played ${enemyHand}. You ${result}.`
+
+  // do a api post to send the result to the database
 }
 
 function winOrLose(playerHand, enemyHand) {

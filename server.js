@@ -3,8 +3,11 @@ const app = express()
 const cors = require('cors')
 const PORT = 3000
 const path = require('path');
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json()
 // mongodb
 const mongoose = require('mongoose')
+const Score = require('./models/score.model.js')
 
 app.use(cors())
 
@@ -31,8 +34,15 @@ app.get('/api', (request, response) => {
     response.json(rockpaperscissors)
 })
 
-app.post('/api/score', (request, response) => {
-    console.log(req.body)
+app.post('/api/scores', jsonParser, async (request, response) => {
+    try {
+        // console.log(request.body)
+        // response.send(request.body)
+        const score = await Score.create(request.body)
+        response.status(200).json(score)
+    } catch (error) {
+        response.status(500).json({ message: error.message })
+    }
 })
 
 app.listen(process.env.PORT || PORT, () => {
