@@ -11,6 +11,9 @@ const ScoreSchema = mongoose.Schema(
       // required: [true, 'Pls enter product name'],
       // default: 0,
     },
+    tie: {
+      type: Number,
+    },
     // image: {
     //   type: String,
     //   required: false,
