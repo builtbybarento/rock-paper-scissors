@@ -1,3 +1,19 @@
+// My attempt at getting the game to talk to whoever is playing
+const { text } = require("body-parser");
+
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.getElementById('title').textContent;
+  const result = document.getElementById('result').textContent;
+
+  const speakText = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Based on whats above, this is where the magic happens!
+  speakText(`${title}. ${result}`);
+});
+
 // document.querySelector('#clickMe').addEventListener('click', makeReq)
 let value;
 function scissors() {
