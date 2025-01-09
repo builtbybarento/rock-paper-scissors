@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // document.querySelector('#clickMe').addEventListener('click', makeReq)
-let value;
+var value;
 function scissors() {
   value = 'scissors';
   makeReq();

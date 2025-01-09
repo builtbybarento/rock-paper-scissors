@@ -8,6 +8,7 @@ const jsonParser = bodyParser.json()
 // mongodb
 const mongoose = require('mongoose')
 const Score = require('./models/score.model.js')
+const User = require('./models/user.model.js')
 
 app.use(cors())
 
@@ -34,24 +35,22 @@ app.get('/api', (request, response) => {
   response.json(rockpaperscissors);
 })
 
-// get the scores
+// ---------------------- //
+// SCORES API
+// ---------------------- //
 app.get('/api/scores', jsonParser, async (request, response) => {
   try {
     // console.log(request.body)
-    // response.send(request.body)
     const scores = await Score.find({})
     response.status(200).json(scores)
   } catch (error) {
     response.status(500).json({ message: error.message })
   }
 })
-
 // TODO: i guess the tally score should use update(put) and not post
-// post the tally scores to /api/scores
 app.post('/api/scores', jsonParser, async (request, response) => {
   try {
     // console.log(request.body)
-    // response.send(request.body)
     const score = await Score.create(request.body)
     response.status(200).json(score)
   } catch (error) {
@@ -59,8 +58,29 @@ app.post('/api/scores', jsonParser, async (request, response) => {
   }
 })
 
-// TODO: api create user
-
+// ---------------------- //
+// USERS API
+// ---------------------- //
+app.post('/api/users', jsonParser, async (request, response) => {
+  try {
+    // console.log(request.body)
+    // response.send(request.body)
+    const user = await User.create(request.body)
+    response.status(200).json(user)
+  } catch (error) {
+    response.status(500).json({ message: error.message })
+  }
+})
+app.get('/api/users', jsonParser, async (request, response) => {
+  try {
+    // console.log(request.body)
+    // response.send(request.body)
+    const users = await User.find({})
+    response.status(200).json(users)
+  } catch (error) {
+    response.status(500).json({ message: error.message })
+  }
+})
 // TODO: api update user 
 
 // connect to mongodb
@@ -75,4 +95,3 @@ mongoose.connect('mongodb+srv://admin:pass1234@backend-db.d8rmd.mongodb.net/Node
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
 })
-
