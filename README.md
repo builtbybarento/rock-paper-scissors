@@ -1,4 +1,4 @@
-# rock-paper-scissors
+# Rock, Paper, Scissors! 
 Rock Paper Scissors game with server side logic. Built with Node.js, Express, HTML and CSS. 
 
 ![screenshot](screenshot.jpg)
