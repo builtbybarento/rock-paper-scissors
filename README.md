@@ -1,7 +1,7 @@
 # Rock, Paper, Scissors! 
 Rock Paper Scissors game with server side logic. Built with Node.js, Express, HTML and CSS. 
 
-![screenshot](screenshot.jpg)
+![screenshot](screenshot.png)
 
 To run the project files, you must have the latest version of node.js installed. 
 1. Download the files
